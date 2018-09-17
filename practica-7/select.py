@@ -1,10 +1,8 @@
 import psycopg2
 
-try:
-    debian_9_conn = psycopg2.connect("dbname='emi' user='postgres' host='192.168.1.14' password='bdpostgres'")
-    #debian_8_conn = psycopg2.connect("dbname='emi' user='postgres' host='192.168.1.18' password='bdpostgres'")
-except:
-    print("Error conectando a servidor debian 9")
+
+debian_9_conn = psycopg2.connect("dbname='emi' user='postgres' host='192.168.1.14' password='bdpostgres'")
+#debian_8_conn = psycopg2.connect("dbname='emi' user='postgres' host='192.168.1.18' password='bdpostgres'")
 
 cur = debian_9_conn.cursor()
 
