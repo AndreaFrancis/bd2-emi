@@ -1,0 +1,11 @@
+
+Link de bitcora: https://www.youtube.com/watch?v=Jvdtx-Smffo
+
+Link del dump; https://www.netguru.co/tips/how-to-dump-and-restore-postgresql-database
+https://www.commandprompt.com/blog/a_better_backup_with_postgresql_using_pg_dump/
+
+Diferencia pg_dump y pg_basebackup
+Transacciones con procedimiento almacenado o funcion en postgres
+pg_dump -: Comandos sql y de bases de datos especificas
+pg_basebackup -: Archivos binarios de todo el cluster
+

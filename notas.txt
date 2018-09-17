@@ -1,0 +1,13 @@
+Brayan:
+pgadmin OK
+debian OK
+datacleaner instalado 
+postgres OK
+Intalacion Icing2 
+
+
+Ricardo:
+- debian
+- postgres
+- pgadmin
+

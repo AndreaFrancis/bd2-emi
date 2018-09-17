@@ -1,0 +1,129 @@
+CREATE DATABASE emi;
+\c emi;
+
+CREATE TABLE estudiantes
+(
+	id serial primary key,
+	nombre	varchar(100) not null,
+	carrera varchar(10) not null,
+	semestre int not null check (semestre > 0),
+	sangre varchar(5),
+	deporte varchar(30)
+);
+
+insert en ambas bds para ver ejemplo;
+
+---------------------------------------------------------------
+SERVIDOR 1
+---------------------------------------------------------------
+
+CREATE EXTENSION dblink;
+
+Si sale error:
+sudo apt-get install postgresql-contrib
+
+Ver extensiones \dx
+
+
+
+SELECT dblink_connect('debian8', 'dbname=emi host=192.168.1.18 user=postgres password=bdpostgres');
+
+SELECT * FROM dblink('debian8', 'select * from estudiantes') AS remote(
+	id int,
+	nombre	varchar(100),
+	carrera varchar(10),
+	semestre int,
+	sangre varchar(5),
+	deporte varchar(30)
+);
+
+
+SELECT * FROM estudiantes UNION
+SELECT * FROM dblink('debian8', 'select * from estudiantes') AS remote(
+	id int,
+	nombre	varchar(100),
+	carrera varchar(10),
+	semestre int,
+	sangre varchar(5),
+	deporte varchar(30)
+);
+
+
+
+CREATE VIEW vista_estudiantes
+AS
+SELECT * FROM estudiantes UNION
+SELECT * FROM dblink('debian8', 'select * from estudiantes') AS remote(
+	id int,
+	nombre	varchar(100),
+	carrera varchar(10),
+	semestre int,
+	sangre varchar(5),
+	deporte varchar(30)
+);
+
+
+---------------------------------------------------------------
+SERVIDOR 2
+---------------------------------------------------------------
+
+CREATE EXTENSION dblink;
+
+Si sale error:
+sudo apt-get install postgresql-contrib
+
+Ver extensiones \dx
+
+
+SELECT dblink_connect('debian9', 'dbname=emi host=192.168.1.14 user=postgres password=bdpostgres');
+
+SELECT * FROM dblink('debian9', 'select * from estudiantes') AS remote(
+	id int,
+	nombre	varchar(100),
+	carrera varchar(10),
+	semestre int,
+	sangre varchar(5),
+	deporte varchar(30)
+);
+
+
+SELECT * FROM estudiantes UNION
+SELECT * FROM dblink('debian9', 'select * from estudiantes') AS remote(
+	id int,
+	nombre	varchar(100),
+	carrera varchar(10),
+	semestre int,
+	sangre varchar(5),
+	deporte varchar(30)
+);
+
+
+
+CREATE VIEW vista_estudiantes
+AS
+SELECT * FROM estudiantes UNION
+SELECT * FROM dblink('debian9', 'select * from estudiantes') AS remote(
+	id int,
+	nombre	varchar(100),
+	carrera varchar(10),
+	semestre int,
+	sangre varchar(5),
+	deporte varchar(30)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

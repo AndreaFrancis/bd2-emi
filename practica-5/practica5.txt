@@ -1,0 +1,9 @@
+1. DataCleaner
+2. Icinga 
+3. PgX
+4. ELK
+
+
+Revision monitores (5 min solo 4 personas)
+	- Los demas subir video a youtube de al menos 5 min
+

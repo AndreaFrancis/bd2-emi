@@ -1,0 +1,13 @@
+0. Instalar postgres 				OK
+1. Cambiar password a usuario de sistema
+	passwd postgres -- Aqui le pondre cualquier contrasenia Ej: sistemapostgres
+2. Si no ingresa la primera vez o da error, proceder con lo siguiente: OK
+	Ingresar a postgres sin contrasenia la primera vez
+		local	all	postgres	peer
+	ASEGURARSE QUE DICE: peer !!!
+3. Cambiar contrasenia de usuario en base de datos	OK
+	ALTER USER postgres PASSWORD 'bdpostgres'; -- OJO ESTE PASSWORD ES DIFERENTE AL DEL PUNTO 1
+4. Cambiar configuracion de acceso en pg_hba	OK
+	local	all	postgres	md5
+5. Ingresar con password a pg admin ok
+	
