@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'bo.edu.emi.sistemas.bd'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: '5.3.0.Final'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.1'
+}
